@@ -60,7 +60,7 @@ public class Loggin {
     @Before("within(com.ttn.cafe.*)")
     public void LoggingAdvice3()
     {
-        System.out.println("I am in execution");
+        System.out.println("I am  in execution");
     }
     @Before("args(String)")
     public void LoggingAdvice4()
