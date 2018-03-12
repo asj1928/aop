@@ -25,6 +25,7 @@ public class Loggin {
 //    }
     @Pointcut("execution(public String getName())")
     public void joinmethods(){}
+
 //    @Around ( "joinmethods()" )
 //    Object adroundAdvice( ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 //        System.out.println ("around before" );
@@ -37,39 +38,10 @@ public class Loggin {
 //    public void advice(IllegalArgumentException e){
 //        System.out.println ("After  Throwing exception" );
 //    }
-    @Before("within(com.ttn.cafe.*)")
+//
+    @After ( "joinmethods()" )
     public void advice(){
-        System.out.println("Running before advice");
-    }
-
-    @After("execution(public String getName())")
-    public void LoggingAdvice()
-{
-    System.out.println("I am in execution");
-}
-    @Before("execution(public String getName())")
-    public void LoggingAdvice1()
-    {
-        System.out.println("I am in execution");
-    }
-    @After("within(com.ttn.cafe.*)")
-    public void LoggingAdvice2()
-    {
-        System.out.println("I am in execution");
-    }
-    @Before("within(com.ttn.cafe.*)")
-    public void LoggingAdvice3()
-    {
-        System.out.println("I am  in execution");
-    }
-    @Before("args(String)")
-    public void LoggingAdvice4()
-    {
-        System.out.println("I take string argument");
-    }
-    @AfterReturning("args(name)")
-    public void givename(String name){
-    System.out.println("this method takes argument as"+name);
+        System.out.println ("pioncuts se hua hai" );
     }
 }
 
