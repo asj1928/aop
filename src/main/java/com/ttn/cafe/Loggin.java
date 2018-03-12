@@ -2,10 +2,7 @@ package com.ttn.cafe;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -28,12 +25,17 @@ public class Loggin {
 //    }
     @Pointcut("execution(public String getName())")
     public void joinmethods(){}
-    @Around ( "joinmethods()" )
-    Object adroundAdvice( ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        System.out.println ("around before" );
-        Object o=proceedingJoinPoint.proceed ();
-        System.out.println ("aroun after" );
-        return o;
+//    @Around ( "joinmethods()" )
+//    Object adroundAdvice( ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+//        System.out.println ("around before" );
+//        Object o=proceedingJoinPoint.proceed ();
+//        System.out.println ("aroun after" );
+//        return o;
+//    }
+
+    @AfterThrowing( pointcut = "execution(public void Exception())",throwing = "e")
+    public void advice(IllegalArgumentException e){
+        System.out.println ("After  Throwing exception" );
     }
 
 }

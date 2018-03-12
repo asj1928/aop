@@ -27,4 +27,7 @@ public class Combo {
                 ", biscuits=" + biscuits +
                 '}';
     }
+    public void exception() {
+        throw new IllegalArgumentException ();
+    }
 }
