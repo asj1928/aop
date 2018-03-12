@@ -27,6 +27,7 @@ public class Combo {
                 ", biscuits=" + biscuits +
                 '}';
     }
+    @Deprecated
     public void exception() {
         throw new IllegalArgumentException ();
     }
