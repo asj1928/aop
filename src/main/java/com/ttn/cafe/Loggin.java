@@ -39,10 +39,22 @@ public class Loggin {
 //        System.out.println ("After  Throwing exception" );
 //    }
 //
-    @After ( "joinmethods()" )
-    public void advice(){
-        System.out.println ("pioncuts se hua hai" );
-    }
+//    @After ( "joinmethods()" )
+//    public void advice(){
+//        System.out.println ("pioncuts se hua hai" );
+//    }
+@Before("joinmethods()")
+public void LoggingAdvice(JoinPoint joinPoint)
+{
+    System.out.println(joinPoint.getTarget());
+//    Combo combo=(Combo) joinPoint.getTarget();
+}
+    //    @Before("joinmethods()")
+//    public void LoggingAdvice1()
+//    {
+//        System.out.println("I am running twice");
+//    }
+
 }
 
 
