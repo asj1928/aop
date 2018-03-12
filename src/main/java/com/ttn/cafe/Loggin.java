@@ -1,5 +1,7 @@
 package com.ttn.cafe;
 
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -14,19 +16,25 @@ public class Loggin {
 //        System.out.println ("pop" );
 //    }
 
-    @Before("joinmethods()")
-    public void LoggingAdvice()
-    {
-        System.out.println("I am running before getter method");
-    }
-    @Before("joinmethods()")
-    public void LoggingAdvice1()
-    {
-        System.out.println("I am running twice");
-    }
+//    @Before("joinmethods()")
+//    public void LoggingAdvice()
+//    {
+//        System.out.println("I am running before getter method");
+//    }
+//    @Before("joinmethods()")
+//    public void LoggingAdvice1()
+//    {
+//        System.out.println("I am running twice");
+//    }
     @Pointcut("execution(public String getName())")
     public void joinmethods(){}
-//    @Around ( "execute()" )
+    @Around ( "joinmethods()" )
+    Object adroundAdvice( ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        System.out.println ("around before" );
+        Object o=proceedingJoinPoint.proceed ();
+        System.out.println ("aroun after" );
+        return o;
+    }
 
 }
 
