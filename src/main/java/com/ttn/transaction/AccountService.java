@@ -46,16 +46,16 @@ public class AccountService {
     }
 
 //    @Transactional(propagation = Propagation.REQUIRED)
-    @Transactional(readOnly = true)
+    @Transactional(readOnly = false)
     public void insertIntoUserAccount() {
         System.out.println("Inserting into table");
-//        String sql = "INSERT INTO user_account (username,amount)VALUES(?,?)";
+        String sql = "INSERT INTO user_account (username,amount)VALUES(?,?)";
 //        String sql1="update user_account set amount=? where username='Peter'";
 //        String sql2="delete from user_account where id=?";
 //
-        String sql5="select * from user_account";
-        jdbcTemplate.execute(sql5);
-//        jdbcTemplate.update(sql, new Object[]{"john", 2700});
+//        String sql5="select * from user_account";
+//        jdbcTemplate.execute(sql5);
+        jdbcTemplate.update(sql, new Object[]{"john", 2700});
 //        jdbcTemplate.update(sql1,3500);
 //        jdbcTemplate.update(sql2,3);
 //        try {
